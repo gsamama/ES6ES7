@@ -50,4 +50,4 @@ console.log(photoMessage instanceof Message);
 console.log(photoMessage instanceof ImageMessage);
 
 console.log(emptyMessage instanceof ImageMessage);
-console.log(textMessage instanceof ImageMessage);
+console.log(textMessage instanceof ImageMessage); 
