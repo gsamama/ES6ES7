@@ -56,3 +56,4 @@ console.log(photoMessage instanceof ImageMessage);
 // test-case
 console.log(emptyMessage instanceof ImageMessage);
 console.log(textMessage instanceof ImageMessage);
+// EOF
