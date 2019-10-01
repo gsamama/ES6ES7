@@ -1,0 +1,33 @@
+{
+  "name": "es7",
+  "version": "1.0.0",
+  "description": "Small example pack",
+  "main": "index.js",
+  "dependencies": {
+    "nodemon": "^1.19.3"
+  },
+  "devDependencies": {
+    "eslint": "*",
+    "nodemon": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon",
+    "lint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gsamama/ES6ES7.git"
+  },
+  "keywords": [
+    "ES6",
+    "ECMAScript2015",
+    "ES2015"
+  ],
+  "author": "Gilbert Samama",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gsamama/ES6ES7/issues"
+  },
+  "homepage": "https://github.com/gsamama/ES6ES7#readme"
+}
