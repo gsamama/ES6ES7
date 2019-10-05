@@ -14,6 +14,9 @@ class Message {
     if(!created || isNaN(created)){
       throw new Error('Invalid Create Date');
     }
+    if(Message.prototype.call(this, '_created')){
+      throw new Error('Created already exists')
+    }
     this._created=created;
   }
   //toString method for class info
