@@ -3,18 +3,27 @@
   "version": "1.0.0",
   "description": "Small example pack",
   "main": "index.js",
+  "private": true,
   "dependencies": {
-    "nodemon": "^1.19.3"
+    "eslint": "*",
+    "eslint-config-airbnb-base": "*",
+    "eslint-plugin-import": "*",
+    "http-server": "*",
+    "lodash": "^4.17.15",
+    "nodemon": "*",
+    "webpack": "*",
+    "webpack-cli": "^3.3.9"
   },
   "devDependencies": {
     "eslint": "*",
-    "http-server": "^0.11.1",
+    "eslint-config-airbnb-base": "*",
+    "eslint-plugin-import": "*",
+    "http-server": "*",
     "nodemon": "*",
-    "webpack": "^4.41.0",
+    "webpack": "*",
     "webpack-cli": "^3.3.9"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "http-server",
     "nodemon": "nodemon",
     "lint": "eslint",
@@ -27,7 +36,10 @@
   "keywords": [
     "ES6",
     "ECMAScript2015",
-    "ES2015"
+    "ES2015",
+    "ES6 Modules",
+    "Webpack",
+    "Webpack 2"
   ],
   "author": "Gilbert Samama",
   "license": "ISC",
