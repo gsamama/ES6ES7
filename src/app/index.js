@@ -3,7 +3,7 @@ import ImageMessage from './model/image-message.model';
 const m = new ImageMessage();
 console.log('not empty');
 console.dir(m);
-
+console.log('updated again');
 /*const numbers = [1, 2, 3, 4, 5, 8];
 /*
 console.log(numbers.filter(n => n > 4));
