@@ -1,62 +1,46 @@
-// declaring class Message
-class Message {
-  // creating constructor class for params entry
-  constructor(text = '', created = Date.now()){
-    this.text = text;
-    this._created = created;
+const Message = require('./message.model');
+
+const fs = require('fs');
+const path = require('path');
+
+
+class MessageService {
+  constructor(){
+    const filePath = path.join(__dirname, 'messages.json');
+    console.log(__dirname + __filename);
+    let resolvePromise;
+    let rejectPromise;
+    this.messagesPromise = new Promise( (resolve, reject) => {
+      resolvePromise  = resolve;
+      rejectPromise = reject;
+    });
+    fs.readFile(filePath, {encoding: 'utf-8'}, (err, data) =>{
+      //console.log(this);
+      if(err){
+        rejectPromise(err)
+      }
+      else {
+        const dataArray = JSON.parse(data);
+        const dataObj = dataArray.map( item => new Message(item.text, item.created));
+        resolvePromise(dataObj);
+      }
+
+    });
   }
-  // getter
-  get created() {
-    return this.created;
+
+  get messages(){
+    return this.messagesPromise;
   }
-  // and setter
-  set created(created){
-    if(!created || isNaN(created)){
-      throw new Error('Invalid Create Date');
-    }
-    if(Message.prototype.call(this, '_created')){
-      throw new Error('Created already exists')
-    }
-    this._created=created;
-  }
-  //toString method for class info
-  toString(){
-    return `Message created at ${this._created} - text: ${this.text}`;
-  }
+
 }
-// Second class declaration extending base class Message
-class ImageMessage extends Message {
-  // calling constructor and super its params
-  constructor(text='', created = Date.now(), url = '', thumbnail = ''){
-    super(text, created);
-    this._url=url;
-    this._thumbnail=thumbnail;
+
+const messagesService = new MessageService();
+messagesService.messages.then( (messages)=> {
+  for(let x = 0 ; x < messages.length; x+=1){
+    console.log(messages[x]);
   }
-  // class info
-  toString(){
-    return `Photo : ${super.toString()}
-Url: ${this._url}
-Thumbnail: ${this._thumbnail}
-********************************************************************************`
-  }
-}
-// some outputs
-var emptyMessage = new Message();
-var textMessage = new Message('mensagem de ontem', Date.now() - 86400);
-var photoMessage = new ImageMessage();
-// raw output
-console.log(emptyMessage);
-console.log(textMessage);
-// calling toString() method
-console.log(String(emptyMessage));
-console.log(String(textMessage));
-console.log(String(photoMessage));
-// recognizing instance class
-console.log(emptyMessage instanceof Message);
-console.log(textMessage instanceof Message);
-console.log(photoMessage instanceof Message);
-console.log(photoMessage instanceof ImageMessage);
-// test-case
-console.log(emptyMessage instanceof ImageMessage);
-console.log(textMessage instanceof ImageMessage);
-// EOF
+
+})
+.catch( (err) =>{
+console.error(err);
+});
