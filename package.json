@@ -34,7 +34,9 @@
     "build:prod": "webpack",
     "serve": "webpack-dev-server",
     "express": "node server.js",
-    "expressestudar": "NODE_ENV=development PORT=8080 node server.js"
+    "expressestudar": "NODE_ENV=development PORT=8080 node server.js",
+    "hot": "webpack-dev-server",
+    "hot2": "NODE_ENV=hot webpack-dev-server"
   },
   "repository": {
     "type": "git",

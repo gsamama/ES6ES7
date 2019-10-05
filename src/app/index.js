@@ -1,28 +1,17 @@
-import ImageMessage from './model/image-message.model';
+import Message from './model/message.model';
 
-const m = new ImageMessage();
-console.log('not empty');
-console.dir(m);
-console.log('updated again');
-/*const numbers = [1, 2, 3, 4, 5, 8];
-/*
-console.log(numbers.filter(n => n > 4));
-console.log(numbers.reduce((acum, current) => acum+current, 10)) // arrSum + 10
+console.log('index started');
+console.log(new Message());
 
-console.log(numbers.find(n => n === 3));
+/* eslint no-undef: 0 */
+document.getElementById('send').onclick=()=>{
+  const m = new Message(document.getElementById('message').value);
+  document.getElementById('messages').innerHTML += 
+  `<li>${new Date(m._created).toString()} - ${m.text}</li>`;
+  document.getElementById('message').value='';
+  document.getElementById('message').focus();
+}
 
-//const [a, b, c, d, e, f=0] = numbers;
-//const [a, b, ...c] = numbers;
-let [a, b, , , , c] = numbers;
-
-console.log(a, b, c);
-
-[b, a] = [a, b];
-console.log(a, b)
-
-const otherNumbers = [10 , 20 , 30 , ...numbers, 30];
-console.log(otherNumbers)
-
-const s = new Set();
-s.add(1).add(2).add(3).add(2);
-console.log(s);*/
+if(module && module.hot){
+  module.hot.accept();
+}
